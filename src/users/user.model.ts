@@ -31,21 +31,21 @@ export class User extends Model<User, UserCreationAttrs> {
     unique: true,
     allowNull: false,
   })
-  email: string;
+  declare email: string;
 
   @ApiProperty({ example: 'pass1234', description: 'user password' })
   @Column({
     type: DataType.STRING,
     allowNull: false,
   })
-  password: string;
+  declare password: string;
 
   @ApiProperty({ example: 'true', description: 'banned or not' })
   @Column({
     type: DataType.BOOLEAN,
     defaultValue: false,
   })
-  banned: boolean;
+  declare banned: boolean;
 
   @ApiProperty({
     example: 'ban reason text blablabla...',
@@ -55,8 +55,8 @@ export class User extends Model<User, UserCreationAttrs> {
     type: DataType.STRING,
     allowNull: true,
   })
-  banReason: string;
+  declare banReason: string;
 
   @BelongsToMany(() => Role, () => UserRoles)
-  roles: Role[];
+  declare roles: Role[];
 }
